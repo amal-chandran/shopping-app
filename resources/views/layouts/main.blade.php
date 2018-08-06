@@ -12,6 +12,7 @@
 
     <!-- Bootstrap CSS -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 
 </head>
 
@@ -20,6 +21,10 @@
 
     <div class="container pb-2">
         @yield("content")
+    </div>
+
+    <div class="px-4">
+        @yield("content2")
     </div>
 
     <!-- Optional JavaScript -->
