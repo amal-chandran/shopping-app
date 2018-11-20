@@ -28,7 +28,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+
+        return view("products.create");
     }
 
     /**
@@ -39,7 +40,17 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->only([
+            "product_name", "small_desc",
+            "price", "detailed_desc",
+        ]);
+
+        $newProduct = new Product();
+
+        $newProduct->fill($input);
+        $newProduct->save();
+
+        return redirect()->action("ProductController@show", ["id" => $newProduct->id]);
     }
 
     /**
@@ -50,7 +61,9 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $ProductData = Product::find($id);
+
+        return view("products.show")->with(["ProductData" => $ProductData]);
     }
 
     /**
@@ -61,7 +74,9 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ProductData = Product::find($id);
+
+        return view("products.edit")->with(["ProductData" => $ProductData]);
     }
 
     /**
@@ -73,7 +88,17 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $input = $request->only([
+            "product_name", "small_desc",
+            "price", "detailed_desc",
+        ]);
+
+        $ProductData = Product::find($id);
+
+        $ProductData->fill($input);
+        $ProductData->save();
+
+        return redirect()->action("ProductController@show", ["id" => $id]);
     }
 
     /**
