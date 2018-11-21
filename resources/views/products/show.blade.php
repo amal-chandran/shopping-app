@@ -3,11 +3,16 @@
 <div class="mt-4 border shadow-sm bg-white p-4">
 
     <div class="row">
+        <div class="col-6">
+            @if (!empty($ProductData['file_bucket']))
+            <div>
+                @foreach ($ProductData['file_bucket']['files'] as $item)
 
-        <div class="col">
-
+                <img src="{{ asset('storage/'.$item['file_path']) }}"> @endforeach
+            </div>
+            @endif
         </div>
-        <div class="col border-left">
+        <div class="col-6 border-left">
             <h4>
                 {{$ProductData['product_name']}}
             </h4>

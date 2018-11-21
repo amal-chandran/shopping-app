@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->text('small_desc');
             $table->integer('price');
             $table->text('detailed_desc');
-            $table->integer('file_bucket_id');
+            $table->integer('file_bucket_id')->nullable();
             $table->timestamps();
         });
     }

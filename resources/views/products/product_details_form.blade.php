@@ -20,5 +20,13 @@
     {{Form::textarea('detailed_desc',null ,['class' => 'form-control' ,"placeholder"=>"Detailed Discription"])}}
 </div>
 <div class="form-group">
+
+    <div class="custom-file">
+        {{ Form::label('image', 'Cover Image',["class"=>"custom-file-label"]) }}
+        <div></div>
+        {{Form::file('image',['class' => 'custom-file-input' ,"placeholder"=>"Detailed Discription"]) }}
+    </div>
+</div>
+<div class="form-group">
     {{Form::submit('Save' ,['class' => 'btn btn-primary btn-block' ])}}
 </div>

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use Illuminate\Http\Request;
+use App\FileBucket;
+use App\FileStore;
 
 class ProductController extends Controller
 {
@@ -40,15 +42,35 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        $path = $request->file('image')->store("public/images");
+        
+        $path="images/".pathinfo($path)['basename'];
+
         $input = $request->only([
             "product_name", "small_desc",
             "price", "detailed_desc",
         ]);
 
+
         $newProduct = new Product();
 
         $newProduct->fill($input);
+
+        $newBucket=new FileBucket();
+        
+        $newFile=new FileStore([
+            "file_path" => $path,
+        ]);
+
+        $newBucket->save();
+
+        $newProduct->file_bucket_id=$newBucket->id;
+
         $newProduct->save();
+
+        $newProduct->file_bucket()->save($newBucket);
+
+        $newBucket->files()->save($newFile);
 
         return redirect()->action("ProductController@show", ["id" => $newProduct->id]);
     }
@@ -61,8 +83,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $ProductData = Product::find($id);
-
+        $ProductData = Product::with("file_bucket.files")->find($id);
         return view("products.show")->with(["ProductData" => $ProductData]);
     }
 
