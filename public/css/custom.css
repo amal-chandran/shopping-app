@@ -1,3 +1,18 @@
 body {
   background: rgb(247, 247, 247);
 }
+ul {
+  padding-left: 1rem;
+  color: aliceblue;
+}
+
+li {
+  color: #000;
+}
+
+a.no_effect,
+a:visited.no_effect,
+a:hover.no_effect {
+  text-decoration: none !important;
+  color: inherit !important;
+}

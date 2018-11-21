@@ -16,11 +16,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products_list = Product::all();
-        // return $products_list;
-        $view_data = array("products_list" => $products_list);
+        
+        $ProductList = Product::with("file_bucket.files")->get();
 
-        return view("products.index")->with($view_data);
+        return view("products.index")->with(["ProductList" => $ProductList]);
     }
 
     /**
