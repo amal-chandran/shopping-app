@@ -10,8 +10,8 @@
         <div class="col-sm row bg-white border shadow-sm m-2">
             @foreach ($ProductList as $item)
 
-            <a class="no_effect" href="{{ action('ProductController@show', ['id'=>$item->id]) }}">
-                <div style="max-height:20rem;" class="col-sm-12 border-bottom p-3">
+            <div style="max-height:20rem;" class="col-sm-12 border-bottom p-3">
+                <a class="no_effect col-sm" href="{{ action('ProductController@show', ['id'=>$item->id]) }}">
                     <div class="row">
                         <div class="d-flex justify-content-center  align-items-center col-sm-3">
 
@@ -31,8 +31,8 @@
                             </h5>
                         </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            </div>
             @endforeach
         </div>
     </div>

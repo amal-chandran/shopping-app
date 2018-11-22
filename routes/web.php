@@ -21,4 +21,10 @@ Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
+Route::get('/cart', "CartController@index");
+Route::post('/cart/addItem/{id}', "CartController@addItem");
+Route::post('/cart/setQuantity/{id}', "CartController@setQuantity");
+Route::post('/cart/destroy/{id}', "CartController@destroy");
+
 Route::resource('/products', 'ProductController');
+

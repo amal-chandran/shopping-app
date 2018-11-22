@@ -25,7 +25,10 @@
                 <div class="col-9">{!!$ProductData['small_desc']!!}</div>
                 <div class="col-12">
                     <div class="d-flex justify-content-between mt-3 align-items-center">
-                        <button class="btn py-3 font-weight-bold btn-primary btn-block mr-4">ADD TO CART</button>
+                        {!! Form::open(['action' => ["CartController@addItem","id"=>$ProductData['id']],]) !!} {{Form::submit('ADD TO CART' ,['class'
+                        => 'btn py-3 font-weight-bold btn-primary btn-block mr-4',"name"=>"operation" ])}} {!! Form::close()
+                        !!}
+
                         <button class="btn py-3 font-weight-bold btn-primary btn-block mt-0">BUY NOW</button>
                     </div>
                 </div>
