@@ -28,5 +28,8 @@ Route::post('/cart/destroy/{id}', "CartController@destroy");
 
 Route::resource('/products', 'ProductController');
 Route::resource('/profile', 'ProfileController');
+Route::resource('/checkout', 'OrderController',['only' => [
+    'create', 'store'
+]]);
 Route::resource('/profile/{id}/address', 'AddressController');
 

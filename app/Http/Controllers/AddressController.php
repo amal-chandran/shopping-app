@@ -74,7 +74,7 @@ class AddressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id, $address)
+    public function edit($profile_id, $address)
     {
         //
         $AddressData = Address::find($address);
@@ -88,7 +88,7 @@ class AddressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id, $address)
+    public function update(Request $request, $profile_id, $address)
     {
         //
         $AddressData = Address::find($address);
@@ -106,7 +106,7 @@ class AddressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id, $address)
+    public function destroy($profile_id, $address)
     {
         //
         $AddressData = Address::find($address);

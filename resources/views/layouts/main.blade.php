@@ -17,6 +17,8 @@
     <link href="{{ asset('css/sm-core-css.css') }}" rel="stylesheet">
     <link href="{{ asset('css/sm-simple/sm-simple.css') }}" rel="stylesheet">
     <link href="{{ asset('css/sm-mint/sm-mint.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/smart_wizard.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/smart_wizard_theme_arrows.min.css') }}" rel="stylesheet">
 
     <link href="{{ asset('css/jquery.smartmenus.bootstrap-4.css') }}" rel="stylesheet">
 </head>
@@ -39,6 +41,7 @@
     <script src="{{ asset('js/popper.1.14.3.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/jquery.smartmenus.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.smartWizard.min.js') }}"></script>
     <script src="{{ asset('js/jquery.smartmenus.bootstrap-4.min.js') }}"></script>
 
 
@@ -47,6 +50,27 @@
   $('#main-menu').smartmenus();
 });
     </script>
+    @if (request()->session()->exists('complete'))
+    <script type="text/javascript">
+        $(document).ready(function(){
+          $('#smartwizard').smartWizard({backButtonSupport:false,
+          
+          disabledSteps:[0,1,2],selected: 3,useURLhash: false,
+          
+          });
+        });
+    </script>
+    @else
+    <script type="text/javascript">
+        $(document).ready(function(){
+          $('#smartwizard').smartWizard({backButtonSupport:false,
+          
+          disabledSteps:[3]
+          
+          });
+        });
+    </script>
+    @endif
 </body>
 
 </html>

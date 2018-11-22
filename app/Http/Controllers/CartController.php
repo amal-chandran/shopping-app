@@ -39,7 +39,9 @@ class CartController extends Controller
 
     public function addItem($id)
     {
-        Cart::firstOrCreate(["item_id"=>$id,"user_id"=>Auth::id()],["item_count"=>1]);
+       $CartItem= Cart::firstOrNew(["item_id"=>$id,"user_id"=>Auth::id()],["item_count"=>1]);
+
+$CartItem->save();
 
         return redirect()->action("CartController@index");        
     }
@@ -56,7 +58,7 @@ class CartController extends Controller
 
         $SelectedCart->save();
 
-        return redirect()->action("CartController@index");
+        return redirect()->back();
 
     }
 
@@ -64,7 +66,7 @@ class CartController extends Controller
     {
         $SelectedCart=Cart::find($id);
 $SelectedCart->delete();
-return redirect()->action("CartController@index");
+return redirect()->back();
 
     }
 }

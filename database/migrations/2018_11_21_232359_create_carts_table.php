@@ -16,7 +16,7 @@ class CreateCartsTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->integer('item_id');
-            $table->integer('item_count')->nullable();
+            $table->integer('item_count')->default(1);
             $table->timestamps();
         });
     }

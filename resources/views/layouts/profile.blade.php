@@ -10,8 +10,9 @@
                 {{ action('ProfileController@index') }}
                 ">Profile Information</a>
             <a class="dropdown-item dropdown-item-main" href="#">My Orders</a>
-            <a class="dropdown-item {{request()->is('profile/*/address/*')?'active':'' }}" href="{{ action('AddressController@index',['id'=>Auth::id()]) }}">Manage Address</a>
-            <a class="dropdown-item" href="#">Logout</a>
+            <a class="dropdown-item {{request()->is('profile/*/address*')?'active':'' }}" href="{{ action('AddressController@index',['id'=>Auth::id()]) }}">Manage Address</a>            {!! Form::open(['route'=>'logout',"method"=>"post", 'files' => true]) !!}
+            <button class="dropdown-item">Logout</button> {!! Form::close() !!}
+
         </div>
     </div>
     <div class="col">
