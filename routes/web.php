@@ -27,4 +27,6 @@ Route::post('/cart/setQuantity/{id}', "CartController@setQuantity");
 Route::post('/cart/destroy/{id}', "CartController@destroy");
 
 Route::resource('/products', 'ProductController');
+Route::resource('/profile', 'ProfileController');
+Route::resource('/profile/{id}/address', 'AddressController');
 

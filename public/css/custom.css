@@ -16,3 +16,17 @@ a:hover.no_effect {
   text-decoration: none !important;
   color: inherit !important;
 }
+
+.dropdown-menu-static {
+  position: relative;
+  top: 0px;
+  display: block;
+  width: 100%;
+}
+
+.dropdown-menu-static .dropdown-item {
+  padding-left: 3rem;
+}
+.dropdown-menu-static .dropdown-header {
+  font-size: 1.2rem;
+}

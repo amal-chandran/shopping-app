@@ -29,9 +29,9 @@
                                 {{Form::submit('-' ,['class' => 'btn px-3 font-weight-bold btn-info',"name"=>"operation" ])}}
 
                             </div>
-                            {{Form::text('item_count',null ,[ "class"=>"form-control", "aria-label"=>"Example text with two button addons", "aria-describedby"=>"button-addon3"
-                            ])}} {{-- <input type="text" class="form-control" placeholder=""
-                                aria-label="Example text with two button addons" aria-describedby="button-addon3"> --}}
+                            {{Form::text('item_count',null ,[ "class"=>"form-control text-center", "aria-label"=>"Example text with two button addons",
+                            "aria-describedby"=>"button-addon3" ])}} {{-- <input type="text"
+                                class="form-control" placeholder="" aria-label="Example text with two button addons" aria-describedby="button-addon3">                            --}}
                             <div class="input-group-append" id="button-addon3">
                                 {{Form::submit('+' ,['class' => 'btn px-3 font-weight-bold btn-info',"name"=>"operation" ])}}
 
@@ -74,6 +74,9 @@
                 <div style="padding-top:.8rem;margin:0px;" class="row">
                     <div class="col-6">Amount Payable</div>
                     <div class="col-6">{{$PriceDetails['TotalSum']}}</div>
+                </div>
+                <div class="mt-3">
+                    <button class="btn btn-primary btn-block">Place Order</button>
                 </div>
             </div>
         </div>

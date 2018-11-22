@@ -19,7 +19,7 @@ class ProductController extends Controller
         
         $ProductList = Product::with("file_bucket.files")->get();
 
-        return view("products.index")->with(["ProductList" => $ProductList]);
+        return view("products.products_index")->with(["ProductList" => $ProductList]);
     }
 
     /**
@@ -30,7 +30,7 @@ class ProductController extends Controller
     public function create()
     {
 
-        return view("products.create");
+        return view("products.products_create");
     }
 
     /**
@@ -83,7 +83,7 @@ class ProductController extends Controller
     public function show($id)
     {
         $ProductData = Product::with("file_bucket.files")->find($id);
-        return view("products.show")->with(["ProductData" => $ProductData]);
+        return view("products.products_show")->with(["ProductData" => $ProductData]);
     }
 
     /**
@@ -96,7 +96,7 @@ class ProductController extends Controller
     {
         $ProductData = Product::find($id);
 
-        return view("products.edit")->with(["ProductData" => $ProductData]);
+        return view("products.products_edit")->with(["ProductData" => $ProductData]);
     }
 
     /**
