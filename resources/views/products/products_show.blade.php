@@ -3,7 +3,7 @@
 <div class="mt-4 border shadow-sm bg-white p-4">
 
     <div class="row">
-        <div class="d-flex justify-content-center align-items-center col-6">
+        <div class="d-flex justify-content-center align-items-top col-6">
             @if (!empty($ProductData['file_bucket']))
             <div>
                 @foreach ($ProductData['file_bucket']['files'] as $item)
@@ -31,6 +31,9 @@
 
                         <button class="btn py-3 ml-2 font-weight-bold btn-primary btn-block mt-0">BUY NOW</button>
                     </div>
+                </div>
+                <div class="col-12">
+                    {!!$ProductData['detailed_desc'] !!}
                 </div>
             </div>
         </div>

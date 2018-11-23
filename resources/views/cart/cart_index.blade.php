@@ -21,7 +21,7 @@
             <div class="card-body">
                 @component('components.cart_price',["PriceDetails"=>$PriceDetails]) @endcomponent
                 <div class="mt-3">
-                    <button class="btn btn-primary btn-block">Place Order</button>
+                    <a href="{{action('OrderController@create')}}" class="btn btn-primary btn-block">Place Order</a>
                 </div>
             </div>
         </div>
