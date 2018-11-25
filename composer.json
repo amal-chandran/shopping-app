@@ -44,7 +44,8 @@
     ],
     "post-install-cmd": [
       "Illuminate\\Foundation\\ComposerScripts::postInstall",
-      "php artisan optimize"
+      "php artisan optimize",
+      "php -r \"copy('postinstall\\HtmlServiceProvider.php', 'vendor\\laravelcollective\\html\\src\\HtmlServiceProvider.php');\""
     ],
     "post-update-cmd": [
       "Illuminate\\Foundation\\ComposerScripts::postUpdate",
