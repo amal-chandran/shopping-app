@@ -32,4 +32,5 @@ Route::resource('/checkout', 'OrderController',['only' => [
     'create', 'store'
 ]]);
 Route::resource('/profile/{id}/address', 'AddressController');
+Route::post('/review/addReview/{id}', "ReviewController@addReview");
 

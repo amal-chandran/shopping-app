@@ -3,14 +3,22 @@
 <div class="mt-4 border shadow-sm bg-white p-4">
 
     <div class="row">
-        <div class="d-flex justify-content-center align-items-top col-6">
-            @if (!empty($ProductData['file_bucket']))
-            <div>
-                @foreach ($ProductData['file_bucket']['files'] as $item)
+        <div class=" col-6">
+            <div class="d-flex justify-content-center align-items-top">
 
-                <img style="max-height: 400px;max-width: 400px" src="{{ asset('storage/'.$item['file_path']) }}"> @endforeach
+                @if (!empty($ProductData['file_bucket']))
+                <div>
+                    @foreach ($ProductData['file_bucket']['files'] as $item)
+
+                    <img style="max-height: 400px;max-width: 400px" src="{{ asset('storage/'.$item['file_path']) }}"> @endforeach
+                </div>
+                @endif
             </div>
-            @endif
+            <h4 class="border-bottom pb-1">Review</h4>
+            {!! Form::open(['action' => ["ReviewController@addReview","id"=>$ProductData['id']],"method"=>"post", 'files' => true]) !!}
+    @include('review.review_form'){!! Form::close() !!} @component('components.review_list',['ReviewData'=>$ReviewData])
+            @endcomponent
+
         </div>
         <div class="col-6 border-left">
             <h4>

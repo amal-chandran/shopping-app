@@ -17,4 +17,8 @@ class Product extends Model
         return $this->hasOne("App\FileBucket", "id", "file_bucket_id");
     }
 
+public function reviews()
+{
+return    $this->hasMany("App\Review",'product_id','id');
+}
 }

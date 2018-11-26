@@ -83,7 +83,9 @@ class ProductController extends Controller
     public function show($id)
     {
         $ProductData = Product::with("file_bucket.files")->find($id);
-        return view("products.products_show")->with(["ProductData" => $ProductData]);
+        $ReviewData=Product::with("reviews")->find($id);
+        $ReviewData=$ReviewData->reviews;
+        return view("products.products_show")->with(["ProductData" => $ProductData,'ReviewData'=>$ReviewData]);
     }
 
     /**

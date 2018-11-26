@@ -1,0 +1,1 @@
+php artisan make:migration:schema create_reviews_table --schema="comment:text,user_id:integer,product_id:integer,rating:integer"

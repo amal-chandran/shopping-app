@@ -46,4 +46,10 @@ class User extends Authenticatable
     {
        return $this->hasMany("App\Order",'user_id','id');
     }
+
+    public function review()
+    {
+        return $this->hasMany("App\Review",'user_id','id');
+    }
+
 }
